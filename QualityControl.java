@@ -46,7 +46,11 @@ public class QualityControl
         }
         System.out.println("Production complete");
         System.out.println(goodUnits+" Units passed check. "+badUnits+" Failed check.");
-                
+        double successRate;
+        successRate = (goodUnits*1.0)/(units*1.0);
+        double successRatePercent=successRate*100.0;
+        System.out.println("Total units produced: "+units);
+        System.out.println("The success rate was "+successRatePercent+" %.");
     }
     
 }
