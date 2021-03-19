@@ -5,6 +5,7 @@ however it might be a lot weirder than that.
  */
 package MessingAround;
 import java.util.Scanner;
+import java.util.Random;
 /**
  *
  * @author Brooks Pepper
@@ -24,7 +25,7 @@ public class randomDoors
         switch(selection)//this whole shabang gathers the users input, the game itself may not make sense but the code itself works.
         {
             case 1:
-                randomPrize(selection);//this calls to the randomPrize method which gives the user a random prize.
+                randomPrize();//this calls to the randomPrize method which gives the user a random prize.
                 break;
             case 2:
                 System.out.println("What is your favorite number? This will help determine what is behind your door!");
@@ -37,10 +38,11 @@ public class randomDoors
                 carQuestion(secondQuestionResponse);
                 break;
         }
+       int temp=0;//just a temp variable so that the while loop can do it's thing
+       while(temp==0)
+       {//this loop is to make sure that if they input an invalid response it will continue until yes or no is entered
        System.out.println("Would you like to play again?");//asks user if they would like to play again
        String yesOrNo=userInput.next();//gets response
-       int temp=0;//just a temp variable so that the while loop can do it's thing
-       while(temp==0){//this loop is to make sure that if they input an invalid response it will continue until yes or no is entered
        switch(yesOrNo)//this may not be the most effective but it is something i've worked out myself.  based on yes or no it will run the whole program again
        {
            case "yes":
@@ -62,9 +64,10 @@ public class randomDoors
        }
  
     }
-    public static void randomPrize(int random)
+    public static void randomPrize()
     {
-        random=(int) (Math.random()*3);//generates a random number between 0 and 2 to get a value for the switch
+        Random rand=new Random();
+        int random=rand.nextInt(2);//generates a random number between 0 and 2 to get a value for the switch
         switch(random)//uses the randomly generated number to get a response from the switch
         {
             case 0:
