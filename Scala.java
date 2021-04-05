@@ -24,10 +24,13 @@ public class Scala
             
     public static void main(String[] args)
     {
-        Scanner userInput=new Scanner(System.in);
         System.out.println("Welcome to Tony's Pizza Parlor!");
+        int tempCont=0;
+        while(tempCont==0)
+        {
+        Scanner userInput=new Scanner(System.in);
         System.out.println("Would you like: \n 1. Sliders \n 2. Spaghetti");
-        String selection=userInput.next();
+        String selection=userInput.next();      
         switch(selection)
         {
             case "1":
@@ -42,7 +45,20 @@ public class Scala
                 break;
                  
         }
+        System.out.println("Would you like to order again? \n 1. Yes \n 2. No");
+        int userCont=userInput.nextInt();
+        switch(userCont)
+        {
+            case 1:
+                tempCont+=0;
+                break;
+            case 2:
+                tempCont++;
+                break;                            
+        }
+        }
         statisticResturante();
+        System.out.println("Thank you for coming to Tony's Pizza Parlor!");
     }
     
     public static void slider(int sliderOrderNumber)
