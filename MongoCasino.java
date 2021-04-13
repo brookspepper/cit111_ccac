@@ -13,6 +13,7 @@ import java.util.Random;
 public class MongoCasino
 {
     public static int chips=250;
+    public static int chipValue=5;
     public static void main(String[] args)
     {        
         boolean continueGame=true; 
@@ -67,12 +68,13 @@ public class MongoCasino
                 int betSeven=userInput.nextInt();
                 individualNumber(betSeven, chosenNumber);
         }
+        statistics();
         if(chips==0)
         {
             System.out.println("Get out of here you bum!");
             System.out.println("You've been kicked out of the casino!");
             continueGame=false;
-        }
+        }        
         }
     }
     public static void redOdd(int betAmount)//red and odd are the same on a roulette table so I combined them into one method
@@ -184,5 +186,12 @@ public class MongoCasino
             System.out.println("Better luck next time!");
             chips=chips-betAmount;
         }
+    }
+    public static void statistics()
+    {
+        System.out.println("****STATISTICS*****");
+        System.out.println("So far you've won "+(chips-250)+"Chips.");
+        System.out.println(chips+" Chips are worth "+(chipValue*chips));
+        System.out.println("****END****");                
     }
 }
