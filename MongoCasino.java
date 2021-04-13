@@ -19,47 +19,53 @@ public class MongoCasino
         while(continueGame==true){
         System.out.println("Welcome to the roulette table!");
         System.out.println("What would you like to bet on?");
-        System.out.println(" 1. Red \n 2. Black \n 3. 0 \n 4. 00 \n 5. Even \n 6. Odd");
+        System.out.println(" 1. Red \n 2. Black \n 3. 0 \n 4. 00 \n 5. Even \n 6. Odd \n 7. Chose a number to bet on.");
         Scanner userInput=new Scanner(System.in);
         String bet=userInput.next();
         switch(bet)
         {
             case "1":
-                System.out.println("How much would you like to bet?");
+                System.out.println("How much would you like to bet? Red pays 2 to 1.");
                 int betOne=userInput.nextInt();
                 redOdd(betOne);
                 System.out.println("You now have "+chips+" chips.");                
                 break;
             case "2":
-                System.out.println("How much would you like to bet?");
+                System.out.println("How much would you like to bet? Black plays 2 to 1.");
                 int betTwo=userInput.nextInt();
                 blackEven(betTwo);
                 System.out.println("You now have "+chips+" chips.");
                 break;
             case "3":
-                System.out.println("How much would you like to bet?");
+                System.out.println("How much would you like to bet? Zero pays 35 to 1.");
                 int betThree=userInput.nextInt();
                 zero(betThree);
                 System.out.println("You now have "+chips+" chips.");
                 break;
             case "4":
-                System.out.println("How much would you like to bet?");
+                System.out.println("How much would you like to bet? Double Zero pays 35 to 1.");
                 int betFour=userInput.nextInt();
                 zeroZero(betFour);
                 System.out.println("You now have "+chips+" chips.");
                 break;
             case "5":
-                System.out.println("How much would you like to bet?");
+                System.out.println("How much would you like to bet? Even pays 2 to 1.");
                 int betFive=userInput.nextInt();
                 blackEven(betFive);
                 System.out.println("You now have "+chips+" chips.");
                 break;
             case "6":
-                System.out.println("How much would you like to bet?");
+                System.out.println("How much would you like to bet? Odd pays 2 to 1.");
                 int betSix=userInput.nextInt();
                 redOdd(betSix);
                 System.out.println("You now have "+chips+" chips.");
-                break;          
+                break;       
+            case "7":
+                System.out.println("Enter the number from 1-36 you would like to bet on. Any number pays 35 to 1.");
+                int chosenNumber=userInput.nextInt();
+                System.out.println("How much would you like to bet on this?");
+                int betSeven=userInput.nextInt();
+                individualNumber(betSeven, chosenNumber);
         }
         if(chips==0)
         {
@@ -162,4 +168,21 @@ public class MongoCasino
             chips=chips-betAmount;
         }
      }
+    public static void individualNumber(int betAmount, int number)
+    {
+        Random rand=new Random();
+        int upperbound=39;
+        int randomNumber=rand.nextInt(upperbound);
+        if(randomNumber==number)
+        {
+            System.out.println("You've just hit the jackpot buddy!");
+            betAmount=betAmount*35;
+            chips=chips+betAmount;
+        }
+        else
+        {
+            System.out.println("Better luck next time!");
+            chips=chips-betAmount;
+        }
+    }
 }
