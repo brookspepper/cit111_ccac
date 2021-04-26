@@ -62,22 +62,22 @@ public class Car {
         if(speed<=15)
         {
             System.out.println(gear=1);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         else if(speed>15 && speed<=30)
         {
             System.out.println(gear=2);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         else if(speed>30 && speed<=50)
         { 
             System.out.println(gear=3);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         else if(speed>50)
         {
             System.out.println(gear=4);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         return speed;                
     }
@@ -96,22 +96,22 @@ public class Car {
         if(speed<=15)
         {
             System.out.println(gear=1);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         else if(speed>15 && speed<=30)
         {
             System.out.println(gear=2);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         else if(speed>30 && speed<=50)
         { 
             System.out.println(gear=3);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         else if(speed>50)
         {
             System.out.println(gear=4);
-            return gear;
+            System.out.println("The current gear is "+gear);
         }
         return speed;
     }
